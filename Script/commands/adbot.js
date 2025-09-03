@@ -54,14 +54,14 @@ module.exports.run = async ({ api, event, args }) => {
     if (args[0] == "admin") {
         let callback = () => api.sendMessage(
             {
-                body: `———»ADMIN BOT«———\n❯ Name: 𝐒𝐇𝐀𝐇𝐀𝐃𝐀𝐓 𝐒𝐀𝐇𝐔\n❯ Facebook: https://facebook.com/100001039692046\n❯ Thanks for using ${global.config.BOTNAME} bot`,
+                body: `———»ADMIN BOT«———\n❯ Name: 𝐀𝐅𝐍𝐀𝐍 𝙈𝘼𝙇𝙇𝙄𝙆\n❯ Facebook: https://facebook.com/61577782659175\n❯ Thanks for using ${global.config.BOTNAME} bot`,
                 attachment: fs.createReadStream(__dirname + "/cache/1.png")
             },
             event.threadID,
-            () => fs.unlinkSync(__dirname + "/cache/1.png")
+            () => fs.unlinkSync(__dirname + "https://i.imgur.com/1NpxyTv.jpeg")
         );
 
-        return request(encodeURI(`https://graph.facebook.com/100001039692046/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`))
+        return request(encodeURI(`https://graph.facebook.com/61577782659175/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`))
             .pipe(fs.createWriteStream(__dirname + '/cache/1.png'))
             .on('close', () => callback());
     }
@@ -79,7 +79,7 @@ module.exports.run = async ({ api, event, args }) => {
 
         let data = await api.getUserInfo(id);
         let username = data[id].vanity;
-        let profileUrl = username ? `https://facebook.com/${username}` : `https://facebook.com/profile.php?id=${id}`;
+        let profileUrl = username ? `https://facebook.com/61577782659175${username}` : `https://facebook.com/profile.php?id=61577782659175${id}`;
         let isFriend = data[id].isFriend ? "Yes" : "No";
         let name = data[id].name;
         let gender = data[id].gender == 2 ? "Male" : data[id].gender == 1 ? "Female" : "Not specified";
@@ -87,15 +87,15 @@ module.exports.run = async ({ api, event, args }) => {
         let callback = () => api.sendMessage(
             {
                 body: `Name: ${name}\nProfile URL: ${profileUrl}\nUID: ${id}\nGender: ${gender}\nFriend with bot: ${isFriend}`,
-                attachment: fs.createReadStream(__dirname + "/cache/1.png")
+                attachment: fs.createReadStream(__dirname + "https://i.imgur.com/1NpxyTv.jpeg")
             },
             event.threadID,
             () => fs.unlinkSync(__dirname + "/cache/1.png"),
             event.messageID
         );
 
-        return request(encodeURI(`https://graph.facebook.com/${id}/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`))
-            .pipe(fs.createWriteStream(__dirname + '/cache/1.png'))
+        return request(encodeURI(`https://graph.facebook.com/61577782659175${id}/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`))
+            .pipe(fs.createWriteStream(__dirname + 'https://i.imgur.com/1NpxyTv.jpeg'))
             .on('close', () => callback());
     }
 };
